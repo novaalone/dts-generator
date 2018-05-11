@@ -17,14 +17,14 @@ JavaScript that users can simply reference from the TypeScript compiler using a 
 
 ## Usage
 
-1. `npm install dts-generator`
+1. `npm install dts-gen-xx`
 
 2. Generate your `d.ts` bundle:
 
    Programmatically:
 
 ```js
-require('dts-generator').default({
+require('dts-gen-xx').default({
 		name: 'package-name',
 		project: '/path/to/package-directory',
 		out: 'package-name.d.ts'
@@ -34,14 +34,14 @@ require('dts-generator').default({
    Command-line:
 
 ```bash
-dts-generator --name package-name --project /path/to/package-directory --out package-name.d.ts
+dts-gen --name package-name --project /path/to/package-directory --out package-name.d.ts
 ```
 
    Grunt:
 
 ```js
 module.exports = function (grunt) {
-	grunt.loadNpmTasks('dts-generator');
+	grunt.loadNpmTasks('dts-gen-xx');
 	grunt.initConfig({
 		dtsGenerator: {
 			options: {
@@ -86,6 +86,8 @@ import Foo = require('package-name/Foo');
 * `out: string`: The filename where the generated bundle will be created.
 * `project?: string`: The base directory for the project being bundled.  It is assumed that this directory contains a `tsconfig.json` which will be parsed to determine the files that should be bundled as well as other configuration information like `target`
 * `target?: ts.ScriptTarget`: The target environment for generated code. Defaults to `ts.ScriptTarget.Latest`.
+* `replaceModule?: string`: The target main module name in your project`.
+* `mainModule?: string`: The original main module name in your project`.
 * `resolveModuleId: (params: ResolveModuleIdParams) => string`: An optional callback provided by the invoker to customize the declared module ids the output d.ts files. For details see [resolving module ids](docs/resolving-module-ids.md).
 * `resolveModuleImport: (params: ResolveModuleImportParams) => string`: An optional callback provided by the invoker to customize the imported module ids in the output d.ts files. For details see [resolving module ids](docs/resolving-module-ids.md).
 
