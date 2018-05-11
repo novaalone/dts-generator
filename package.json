@@ -1,14 +1,14 @@
 {
-  "name": "dts-generator",
+  "name": "dts-gen-xx",
   "description": ".d.ts generator. Generates a single d.ts bundle containing external modules from TypeScript files.",
-  "version": "2.1.0",
+  "version": "0.0.1",
   "bugs": {
     "url": "https://github.com/SitePen/dts-generator/issues"
   },
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "https://github.com/novaalone/dts-generator.git"
+    "url": "git+https://github.com/novaalone/dts-generator.git"
   },
   "bin": {
     "dts-generator": "bin/dts-generator"
@@ -28,5 +28,12 @@
   "scripts": {
     "prepublish": "tsc --module umd --target es5 --moduleResolution node typings/tsd.d.ts index.ts bin/dts-generator.ts",
     "test": "tests/run.sh"
-  }
+  },
+  "homepage": "https://github.com/novaalone/dts-generator#readme",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "author": "xx_ma"
 }
