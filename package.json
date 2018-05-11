@@ -8,7 +8,7 @@
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "https://github.com/SitePen/dts-generator.git"
+    "url": "https://github.com/novaalone/dts-generator.git"
   },
   "bin": {
     "dts-generator": "bin/dts-generator"
