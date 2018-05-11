@@ -470,9 +470,9 @@ export default function generate(options: Options): Promise<void> {
 			}
 
 			if (options.replaceModule) {
-				const mainModule = options.mainModule || 'idnex';
+				const mainModule = options.mainModule || 'index';
 				if (resolvedModuleId === mainModule) {
-					resolvedModuleId = options.replaceModule
+					resolvedModuleId = options.replaceModule;
 				}
 			}
 
