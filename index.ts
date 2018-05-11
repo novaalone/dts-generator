@@ -40,6 +40,8 @@ export interface Options {
 	prefix?: string;
 	rootDir?: string;
 	target?: ts.ScriptTarget;
+	mainModule?: string;
+	replaceModule?: string;
 	sendMessage?: (message: any, ...optionalParams: any[]) => void;
 	resolveModuleId?: (params: ResolveModuleIdParams) => string;
 	resolveModuleImport?: (params: ResolveModuleImportParams) => string;
@@ -101,7 +103,6 @@ function getFilenames(baseDir: string, files: string[]): string[] {
 		return pathUtil.resolve(baseDir, filename);
 	});
 }
-
 function processTree(sourceFile: ts.SourceFile, replacer: (node: ts.Node) => string): string {
 	let code = '';
 	let cursorPosition = 0;
@@ -466,6 +467,13 @@ export default function generate(options: Options): Promise<void> {
 				}
 			} else if (options.prefix) {
 				resolvedModuleId = `${options.prefix}/${resolvedModuleId}`;
+			}
+
+			if (options.replaceModule) {
+				const mainModule = options.mainModule || 'idnex';
+				if (resolvedModuleId === mainModule) {
+					resolvedModuleId = options.replaceModule
+				}
 			}
 
 			output.write('declare module \'' + resolvedModuleId + '\' {' + eol + indent);
