@@ -1,19 +1,6 @@
 .d.ts generator
 ===============
-
-[![Build Status](https://travis-ci.org/SitePen/dts-generator.svg?branch=master)](https://travis-ci.org/SitePen/dts-generator)
-
-Generates a single `.d.ts` bundle containing external module declarations exported from TypeScript module files.
-
-## What does this mean?
-
-If you have a project with lots of individual TypeScript files that are designed to be consumed as external modules,
-the TypeScript compiler doesn’t allow you to actually create a single bundle out of them. This package leverages the
-TypeScript language services in TypeScript 1.4+ to generate a single `.d.ts` file containing multiple
-`declare module 'foo'` declarations. This allows you to distribute a single `.d.ts` file along with your compiled
-JavaScript that users can simply reference from the TypeScript compiler using a `/// <reference path />` comment.
-
-`.d.ts` generator will also correctly merge non-external-module files, and any already-existing `.d.ts` files.
+Forks of dts-generator, add params to replace the main module name
 
 ## Usage
 
@@ -86,20 +73,12 @@ import Foo = require('package-name/Foo');
 * `out: string`: The filename where the generated bundle will be created.
 * `project?: string`: The base directory for the project being bundled.  It is assumed that this directory contains a `tsconfig.json` which will be parsed to determine the files that should be bundled as well as other configuration information like `target`
 * `target?: ts.ScriptTarget`: The target environment for generated code. Defaults to `ts.ScriptTarget.Latest`.
-* `replaceModule?: string`: The target main module name in your project`.
-* `mainModule?: string`: The original main module name in your project`.
+* `replaceModule?: string`: The target main module name in your project.
+* `mainModule?: string`: The original main module name in your project.
 * `resolveModuleId: (params: ResolveModuleIdParams) => string`: An optional callback provided by the invoker to customize the declared module ids the output d.ts files. For details see [resolving module ids](docs/resolving-module-ids.md).
 * `resolveModuleImport: (params: ResolveModuleImportParams) => string`: An optional callback provided by the invoker to customize the imported module ids in the output d.ts files. For details see [resolving module ids](docs/resolving-module-ids.md).
 
-## Known issues
-
-* Output bundle code formatting is not perfect yet
 
 ## Thanks
 
-[@fdecampredon](https://github.com/fdecampredon) for the idea to dump output from the compiler emitter back into the compiler parser instead of trying to
-figure out how to influence the code emitter.
-
-## Licensing
-
-© 2015 SitePen, Inc. New BSD License.
+[dts-generator](https://github.com/SitePen/dts-generator) for the open source code.
