@@ -1,11 +1,10 @@
 {
   "name": "dts-gen-xx",
   "description": ".d.ts generator. Generates a single d.ts bundle containing external modules from TypeScript files.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "bugs": {
     "url": "https://github.com/novaalone/dts-generator/issues"
   },
-  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/novaalone/dts-generator.git"
